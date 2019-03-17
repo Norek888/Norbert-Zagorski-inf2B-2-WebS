@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pl">
+ <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+ </head>
+ <body >
+     <div class="keys">
+         <div data-key="81" class="key">
+            <kbd>Q</kbd>
+            <span class="dzwiek">boom</span>
+        </div>
+         <div data-key="87" class="key">
+            <kbd>W</kbd>
+            <span class="dzwiek">clap</span>
+        </div>
+         <div data-key="69" class="key">
+            <kbd>E</kbd>
+            <span class="dzwiek">hithat</span>
+         </div>
+         <div data-key="65" class="key">
+            <kbd>A</kbd>
+            <span class="dzwiek">kick</span>
+        </div>
+         <div data-key="83" class="key">
+            <kbd>S</kbd>
+            <span class="dzwiek">openhat</span>
+        </div>
+         <div data-key="68" class="key">
+            <kbd>D</kbd>
+            <span class="dzwiek">ride</span>
+        </div>
+         <div data-key="90" class="key">
+            <kbd>Z</kbd>
+            <span class="dzwiek">snare</span>
+        </div>
+         <div data-key="88" class="key">
+            <kbd>X</kbd>
+            <span class="dzwiek">tink</span>
+        </div>
+         <div data-key="67" class="key">
+            <kbd>C</kbd>
+            <span class="dzwiek">tom</span>
+        </div>
+     </div>
+     <!--Przypisanie dzwiekow do klawiszy-->
+     <audio data-key="81" src="Dzwieki/boom.wav"></audio>
+     <audio data-key="87" src="Dzwieki/clap.wav"></audio>
+     <audio data-key="69" src="Dzwieki/hihat.wav"></audio>
+     <audio data-key="65" src="Dzwieki/kick.wav"></audio>
+     <audio data-key="83" src="Dzwieki/openhat.wav"></audio>
+     <audio data-key="68" src="Dzwieki/ride.wav"></audio>
+     <audio data-key="90" src="Dzwieki/snare.wav"></audio>
+     <audio data-key="88" src="Dzwieki/tink.wav"></audio>
+     <audio data-key="67" src="Dzwieki/tom.wav"></audio>
+   
+    
+     <div class="Nagrania">
+        <div class="Nagrania">
+            <div id="status1">Brak nagrań</div>
+            <button id="odtwórz1" onclick="playRecord(1)">Odtwórz 1</button>
+            <button id="nagraj1" onclick="startRecord(1)">Nagraj 1</button>
+        </div>
+        <div class="Nagrania">
+            <div id="status2">Brak nagrań</div>
+            <button id="odtwórz2" onclick="playRecord(2)">Odtwórz 2</button>
+            <button id="nagraj2" onclick="startRecord(2)">Nagraj 2</button>
+        </div>
+        <div class="Nagrania">
+            <div id="status3">Brak nagrań</div>
+            <button id="odtwórz3" onclick="playRecord(3)">Odtwórz 3</button>
+            <button id="nagraj3" onclick="startRecord(3)">Nagraj 3</button>
+        </div>
+        <div class="Nagrania">
+            <div id="status4">Brak nagrań</div>
+            <button id="odtwórz4" onclick="playRecord(4)">Odtwórz 4</button>
+            <button id="nagraj4" onclick="startRecord(4)">Nagraj 4</button>
+        </div>
+    </div>
+    
+    
+    <script>
+         //odtwarzanie dzwięków 
+     window.addEventListener('keydown',function(e)
+     {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+        if(!audio) return;
+        audio.currentTime = 0;
+        audio.play();
+        key.classList.add('odtwarzanie');
+     });
+     //usuwanie transformacji
+    function removeTransition(e){
+        if(e.propertyName !== 'transform')return;
+        this.classList.remove('odtwarzanie');
+    }
+    const keys = document.querySelectorAll('.key')
+     keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+     </script>
+ </body>
+</html>
