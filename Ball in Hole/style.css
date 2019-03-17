@@ -1,0 +1,29 @@
+body, html
+{
+   background: linear-gradient(#d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+   margin: 0; 
+}
+#kula 
+{
+    width: 10px;
+    height: 10px;
+    border-radius : 5px;
+    background: rgba(76,76,76,1);
+    position: absolute;
+    left: 100;
+    top: 100;
+    z-index: 2;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.75);
+}
+#dziura 
+{
+   position: absolute; 
+   left: 1px;
+   top: 1px;
+   background-color: #555;
+   width: 20px;
+   height: 20px;
+   border-radius: 10px;
+   box-shadow: 2px 2px 2px #000 inset;
+}
+
